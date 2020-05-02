@@ -1,0 +1,41 @@
+.bk {
+    background-image: url("back.jpg");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(158, 158, 158, 0.9);
+}
+.flex{
+    display:flex;
+}
+.flex div{
+    padding:20px 10px;
+    background-color:black;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 22%;
+    flex-basis: 20%;
+    float: left;
+    text-align: center;
+}
+h1{
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 0 9%;
+    letter-spacing: 100px;
+    text-align: center;
+    margin: 27% 0 0 0;
+}
+a{
+    text-decoration: none;
+    color: rgb(158, 158, 158, 0.9);
+}
+.flex>div{
+    font-weight: 300px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+}
+.flex>div:hover{
+    color: rgba(248, 247, 247, 0.3);
+    font-weight: bolder;
+}

@@ -1,0 +1,69 @@
+.bk {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+    text-align: justify;
+}
+.parallax1, .parallax2, .parallax11, .parallax21 {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .parallax1 {
+    background-image: url('rocket.jpg');
+    min-height: 800px     
+  }
+.parallax2{
+    background-image: url('hubble.jpg');
+    min-height: 800px; 
+}
+
+.parallax11 {
+    background-image: url('launch11.jpg');
+    min-height: 800px     
+  }
+.parallax21{
+    background-image: url('launch12.jpg');
+    min-height: 800px; 
+}
+.border{
+    text-align: center;
+    padding:0;
+    margin:20px 0;
+    background-color: rgb(225, 225, 225,0.3);
+    color:white;
+}
+h1{
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 3% 0;
+    letter-spacing: 45px;
+    text-align: center;
+}
+h2{
+    font-weight: 300;
+    font-family: sans-serif;
+    padding: 1% 0;
+    letter-spacing: 10px;
+    text-align: justify;
+    margin: 0.5% 20px 0 ;
+    color: rgba(35, 35, 35, 0.9);
+}
+p{
+    text-align: justify;
+    padding: 0 20px;
+    color:rgba(25,25,25,0.9)
+}
+pre{
+    padding: 0 20px;
+    color:rgba(25,25,25,0.9);
+    font: 400 15px/1.8 "Lato", sans-serif;
+}
+
+
+  @media only screen and (max-device-width: 1024px) {
+    .parallax1, .parallax2 {
+      background-attachment: scroll;
+    }
+  }

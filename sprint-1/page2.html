@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="pageT2.css">
+    <title>Design of a Satellite</title>
+</head>
+
+<body class='bk'>
+    <div class="parallax1">
+        <h1 class="border">DESIGN CONCEPTS</h1>
+    </div>
+    <div>
+        <h2>Structure</h2>
+        <p>The spacecraft bus carries the payload. Its subsystems support the payload and helps in pointing the payload
+            correctly. It puts the payload in the right orbit and keeps it there. It provides housekeeping functions. It
+            also provides orbit and attitude maintenance, electric power, command, telemetry and data handling,
+            structure and rigidity, temperature control, data storage and communication, if required. The payload and
+            spacecraft bus may be different units or it may be a combined one. The booster adapter provides the
+            load-carrying interface with the vehicle (payload and spacecraft bus together).
+        </p>
+        <p> The spacecraft may also have a propellant load, which is used to drive or push the vehicle upwards, and a
+            propulsion kick stage. The propellant commonly used is a compressed gas like nitrogen, liquid such as
+            monopropellant hydrazine or solid fuel, which is used for velocity corrections and attitude control. In a
+            kick stage (also called apogee boost motor, propulsion module, or integral propulsion stage) a separate
+            rocket motor is used to send the spacecraft into its mission orbit. While designing a spacecraft, the orbit
+            which is going to be used should be considered into the point as it affects attitude control, thermal
+            design, and the electric power subsystem. But these effects are secondary as compared to the effect caused
+            on the payload due to the orbit. Thus while designing the mission; the designer selects such an orbit which
+            increases the payload performance. The designer even calculates the required spacecraft performance
+            characteristics such as pointing, thermal control, power quantity, and duty cycle. The spacecraft is then
+            made, which satisfies all the requirements.</p>
+        <br>
+        <h2>Attitude Determination and Control</h2>
+        <p>The attitude determination and control subsystem (ADCS) is used to change the attitude (orientation) of the
+            spacecraft. There are some external torques acting on the spacecraft along the axis passing through its
+            center of gravity which can reorient the ship in any direction or can give it a spin. The ADCS nullifies
+            these torques by applying equal and opposite torques using the propulsion and navigation subsystems. Moment
+            of inertia of the body is to be calculated to determine the external torques which also requires
+            determination of vehicle's absolute attitude using sensors. The property called 'gyroscopic stiffness' is
+            used to reduce the spinning effect. The simplest spacecraft achieve control by spinning or interacting with
+            the Earth's magnetic or gravity fields. Sometimes they are uncontrolled. Spacecraft may have several bodies
+            or they are attached to important parts, such as solar arrays or communication antennas which need
+            individual attitude pointing. For controlling the appendage's attitude, actuators are often used, with
+            separate sensors and controllers. The various types of control techniques used are:[citation needed]
+        </p>
+        <pre>
+            Passive Control Techniques.
+            Spin Control Techniques.
+            Three-axis Control Techniques.
+        </pre>
+        <br>
+        <h2>Telemetry, tracking, and command</h2>
+        <p>Telemetry, tracking, and command (TT&C) is used for communication between spacecraft and the ground systems.
+            The subsystem functions are:
+        </p>
+        <pre>
+            Controlling of spacecraft by the operator on Earth
+            Receive the uplink commands, process and send them to other subsystems for implication.
+            Receive the downlink commands from subsystems, process and transmit them to Earth.
+            Inform constantly about the spacecraft position
+        </pre>
+    </div>
+    <div class='parallax2'>
+        <h1 class="border">CALCULATIONS</h1>
+    </div>
+    <div>
+        <h2>Communication</h2>
+        <p>
+            The process of sending information towards the spacecraft is called uplink or forward link and the opposite
+            process is called downlink or return link. Uplink consists of commands and ranging tones where as downlink
+            consists of status telemetry, ranging tones and even may include payload data. Receiver, transmitter and a
+            wide-angle (hemispheric or omnidirectional) antenna are the main components of a basic communication
+            subsystem. Systems with high data rates may even use a directional antenna, if required. The subsystem can
+            provide us with the coherence between uplink and downlink signals, with the help of which we can measure
+            range-rate Doppler shifts. The communication subsystem is sized by data rate, allowable error rate,
+            communication path length, and RF frequency.
+        </p>
+        <br>
+        <h2>Power</h2>
+        <p>The electrical power subsystem (EPS) consists of 4 subunits</p>
+        <pre>
+            Power Source (Battery, solar cell, fuelcells, thermoelectric couple)
+            Storage unit (No. of batteries in series)
+            Power Distribution (Cabling, switching, shock protection)
+            Power Regulation and Control (To prevent battery overcharging and overheating)
+        </pre>
+        <br>
+        <h2>Thermal</h2>
+        <p>Thermal control subsystem (TCS) is used to maintain the temperature of all spacecraft components within
+            certain limits. Both upper and lower limits are defined for each component. There are two limits, namely,
+            operational (in working conditions) and survival (in non-working conditions). Temperature is controlled by
+            using insulators, radiators, heaters, louvers and by giving proper surface finish to components</p>
+        <br>
+        <h2>Propulsion</h2>
+        <p>The main function of the propulsion subsystem is to provide thrust so as to change the spacecraft's
+            translational velocity or to apply torques to change its angular momentum. There is no requirement of thrust
+            and hence even no requirement of propulsion equipment in a simplest spacecraft. But many of them need a
+            controlled thrust in their system, so their design includes some form of metered propulsion (a propulsion
+            system that can be turned on and off in small increments). Thrusting is used for the following purposes: for
+            changing the orbital parameters, to control attitude during thrusting, correct velocity errors, maneuver,
+            counter disturbance forces (e.g., drag), and control and correct angular momentum. The propulsion subsystem
+            includes a propellant, tankage, distribution system, pressurant, and propellant controls. It also includes
+            thrusters or engines.</p>
+    </div>
+</body>

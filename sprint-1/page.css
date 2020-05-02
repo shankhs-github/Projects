@@ -1,0 +1,39 @@
+.bk {
+    background: url('pageback.jpg');
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-color: rgb(226, 225, 225);
+    background-attachment: fixed;
+    color: rgba(39, 39, 39, 0.7);
+    padding: 2% 10% 2% 35%;
+    margin: 10px 20px;
+    text-align: justify;
+}
+h1{
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 3% 0;
+    letter-spacing: 45px;
+    text-align: center;
+    margin: 1% 0 0 0;
+    background-image: linear-gradient(to right bottom,rgb(226, 226, 226),rgb(78, 78, 78));
+}
+h2{
+    font-weight: 300;
+    font-family: sans-serif;
+    padding: 3% 0;
+    letter-spacing: 10px;
+    text-align: justify;
+    margin: 1% 0 0 0;
+    color: rgba(35, 35, 35, 0.9);
+}
+p{
+    color: rgba(25, 25, 25, 1);
+}
+.parallax1{
+    background-image: url('World.JPG');
+    height: 500px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
