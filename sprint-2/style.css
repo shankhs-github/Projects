@@ -1,0 +1,74 @@
+body{
+    margin: auto;
+    text-align: center;
+}
+.box {
+    display: grid;
+    grid-template-columns: repeat(9, 71px);
+    grid-auto-rows: minmax(71px, 71px);
+    padding: 20px;
+    width : 648px;
+    height : 648px;
+    background-color: rgb(219, 217, 217);
+    float: left;
+    margin : .5% 2% 2% 8%;
+    border-radius: 4px;
+    
+}
+
+.results {
+    width: 350px;
+    height: 648px;
+    padding: 20px;
+    background-color: rgb(114, 113, 113);
+    color: cornsilk;
+    float: right;
+    margin : .5% 4% 2% 4%;
+    border-radius: 4px;
+}
+
+.buttons {
+    margin: 0 0 0 -110px;
+}
+
+.capsule {
+    border: 0.5px solid black;
+    background-color: rgb(160, 158, 158);
+    font-size: 40px;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.input {
+    height : 91%;
+    width: 91%;
+    background-color: whitesmoke ;
+    text-align: center;
+    font-size: 40px;
+    color: rgb(72, 151, 105);
+}
+
+.red {
+    color : red;
+}
+
+.buttons button{
+    width :15%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.buttons p {
+    width :8%;
+    float: right;
+    height: 30px;
+    margin: -8px 55px 0 0;
+    border-radius: 4px;
+    background-color: darkgray;
+    color: whitesmoke;
+    padding: 6px 0 0 0;
+}
+
+
