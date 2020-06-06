@@ -1,0 +1,28 @@
+h1,h3{
+    text-align: center;
+    color: brown;
+}
+div {
+    float: left;
+    text-align: center;
+    border-radius: 20px;
+    height:600px;
+    background-color: rgb(210, 212, 229);
+    border: 1px solid blue;
+}
+.left {
+    width:350px;
+    padding: 10px;
+    margin: 10px;
+}
+.center {
+    width:600px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(229, 212, 229);
+}
+.right {
+    width:250px;
+    padding: 10px;
+    margin: 10px;
+}
