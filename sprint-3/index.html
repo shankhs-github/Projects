@@ -7,11 +7,12 @@
     <title>Masai-Sprint-3</title>
     <link rel='stylesheet' type='text/css' href='index.css'>
 </head>
+
 <body>
     <h1>Welcome to SHANKHA'S QUIZ TIME</h1>
     <h3>Test your Quiz Skills</h3>
 
-    <div class = 'left'>
+    <div class='left'>
         <h2>Registration</h2>
 
         <label for='name'>Select USER NAME (4 to 8 characters):</label>
@@ -31,25 +32,41 @@
 
         <br><br>
 
-        <input onchange='difficulty_label()' type='range' id='difficulty' name='difficulty' min='1' max='3' value='2' step='1'>
-        <label id = 'difficulty_label'for='difficulty'>Select <b>Difficulty</b> Level</label>
+        <input onchange='difficulty_label()' type='range' id='difficulty' name='difficulty' min='1' max='3' value='2'
+            step='1'>
+        <label id='difficulty_label' for='difficulty'>Select <b>Difficulty</b> Level</label>
 
         <br><br>
 
         <input onchange='amount_label()' type='range' id='amount' name='amount' min='5' max='50' value='15' step='5'>
-        <label id = 'amount_label'for='amount'>Select <b>Number</b> of <b>Questions</b> per quiz</label>
+        <label id='amount_label' for='amount'>Select <b>Number</b> of <b>Questions</b> per quiz</label>
 
         <br><br><br>
 
-        <button id = 'start_btn' onclick='quiz_time()'> Lets START !!! </button>
+        <button id='start_btn' onclick='quiz_time()'> Lets START !!! </button>
 
     </div>
 
-    <div class = 'center'>
+    <div class='center'>
         <h2>QUIZ</h2>
+        <div class = 'blocks'>
+            <h2 id='question'>1. hello question here ?</h2>
+        </div>
+        <br><br><br>
+        <div class='answer_options blocks' id='answer_options'>
+            <div id='1'>1</div>
+            <div id='2'>2</div>
+            <div id='3'>3</div>
+            <div id='4'>4</div>
+        </div>
+        <br><br>
+
+        <div class='blocks'>
+            <h2 id='answer'>The answer here</h2>
+        </div>
     </div>
 
-    <div class = 'right'>
+    <div class='right'>
         <h2>Results!!</h2>
     </div>
 

@@ -1,4 +1,4 @@
-div {
+body > div {
     float: left;
     text-align: center;
     border-radius: 20px;
@@ -52,8 +52,28 @@ label{
 button {
     background-color: rgb(0, 0, 107);
     color: rgb(229, 229, 229);
-    padding: 5px;
+    padding: 7px;
     width: 212px;
     border-radius: 12px;
     font-weight: bold;
+}
+
+.blocks {
+    margin:auto;
+    margin-top: 30px;
+}
+
+.answer_options {
+    margin: 0 10px;
+}
+
+.answer_options > div {
+    float: left;
+    width: 250px;
+    height: 70px;
+    padding: 4px;
+    margin: 10px 15px 0 15px;
+    border-radius: 12px;
+    border: 0.5px solid blue;
+    background-color: rgb(134, 164, 165);
 }
