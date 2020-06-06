@@ -2,7 +2,7 @@ body > div {
     float: left;
     text-align: center;
     border-radius: 20px;
-    height:600px;
+    height:580px;
     background-color: rgb(210, 212, 229);
     border: 1px solid blue;
 }
@@ -80,5 +80,10 @@ button {
 .answer{
     float: none;
     padding-top: 40px;
+}
 
+h6 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(11, 63, 46);
 }

@@ -86,6 +86,11 @@ function play_quiz(){
     var temp = localStorage.getItem('current_quiz')
     quiz = JSON.parse(temp)  
 
+    document.getElementById('result_name').innerText = 'The Player name is : '+document.getElementById('name').value
+    document.getElementById('result_email').innerText = 'The registered email id is : '+document.getElementById('email').value
+
+
+
     if (count < amt) {
         var ques = document.getElementById('question')
         ques.innerText = quiz.results[count].question
@@ -103,6 +108,16 @@ function play_quiz(){
         opt_4.innerText = quiz.results[count].incorrect_answers[2]
     } else {
         alert('The Quiz is over !!! \n You can restart with a new category and difficulty level .. \n Do not forget to remember your score!!!! ')
+        localStorage.setItem('current_quiz','')
+        count = 0
+        var highest = localStorage.getItem('highest')
+        highest = JSON.parse(highest)
+        if (score >= highest){
+            alert('WOOOOW !!! you just beat your best score!!! \n KEEP IT UP !!')
+            localStorage.setItem('highest',JSON.stringify(score))
+        }else {
+            alert('You are '+(highest-score)+' away from your all time highest score !!! \n KEEP LEARNING !!')
+        }
     }
 }
 
@@ -117,15 +132,20 @@ function check_answers(){
     var answered = document.getElementById('answer')
     answered.innerText = check.innerText
 
+    var correct = document.getElementById('correct_answer')
 
     if (check.innerText == quiz.results[count].correct_answer){
         alert('YAAAY!!! Correct Answer.')
         score += 10
     }else {
+        correct.innerText = 'Correct answer is : '+quiz.results[count].correct_answer
         alert('OOPS!!! Wrong Answer.')
         score -= 5
     }
+    document.getElementById('current_score').innerText = 'Your current score is : '+score
+    document.getElementById('highest_score').innerText = 'The highest all time score on this laptop is : '+localStorage.getItem('highest')
     count++
+    correct.innerText = ''
     answered.innerText = ''
     play_quiz()
 }
