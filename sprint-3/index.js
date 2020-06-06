@@ -26,7 +26,15 @@ window.onload = function (){
     //         opt.innerText = 'Category : '+res.trivia_categories[x].name
     //         category.append(opt)
     //     }            
-    // }            
+    // }  
+    
+    var temp = document.querySelectorAll('#answer_options > div')
+    for (var y = 0 ; y < 4 ; y++){
+        temp[y].addEventListener('mouseenter',color_change)
+        temp[y].addEventListener('mouseleave',color_org)
+    }
+
+
 }
 
 function difficulty_label(){
@@ -49,3 +57,16 @@ function amount_label(){
     document.getElementById('amount_label').innerText = 'Questions Chosen: '+ amt + ' per Quiz!!'
 }
 
+function color_change(){
+    var temp = event.target
+    temp.style.backgroundColor = 'rgb(50, 229, 20 , 0.7)'
+}
+
+function color_org(){
+    var temp = event.target
+    temp.style.backgroundColor = 'rgb(174, 205, 206)'
+}
+
+function check_answers(){
+    alert()
+}
