@@ -1,20 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Masai-Sprint-3</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel='stylesheet' type='text/css' href='index.css'>
 </head>
 <body>
     <h1>Welcome to SHANKHA'S QUIZ TIME</h1>
     <h3>Test your Quiz Skills</h3>
-    <div class = 'left'></div>
-    <div class = 'center'></div>
-    <div class = 'right'></div>
 
+    <div class = 'left'>
+        <h2>Registration</h2>
 
+        <label for='name'>Select USER NAME (4 to 8 characters):</label>
+        <input id='name' name='name' type='text' required minlength='4' maxlength='8' size='40'>
+
+        <br><br>
+
+        <label for='email'>Email ID:</label>
+        <input id='email' name='email' type='email' required size='40'>
+
+        <br><br><br>
+
+        <label for='category'>Choose a <b>CATEGORY </b>:</label>
+        <br>
+        <select id='category'>
+        </select>
+
+        <br><br>
+
+        <input onchange='difficulty_label()' type='range' id='difficulty' name='difficulty' min='1' max='3' value='2' step='1'>
+        <label id = 'difficulty_label'for='difficulty'>Select <b>Difficulty</b> Level</label>
+
+        <br><br>
+
+        <input onchange='amount_label()' type='range' id='amount' name='amount' min='5' max='50' value='15' step='5'>
+        <label id = 'amount_label'for='amount'>Select <b>Number</b> of <b>Questions</b> per quiz</label>
+
+        <br><br><br>
+
+        <button id = 'start_btn' onclick='quiz_time()'> Lets START !!! </button>
+
+    </div>
+
+    <div class = 'center'>
+        <h2>QUIZ</h2>
+    </div>
+
+    <div class = 'right'>
+        <h2>Results!!</h2>
+    </div>
 
     <script type='text/javascript' src='index.js'></script>
 </body>
