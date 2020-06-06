@@ -92,15 +92,15 @@ function play_quiz(){
 
         var start = Math.floor(Math.random()*4)
 
-        //var opt_1 = document.getElementById(start)
-        var opt_2 = document.getElementById((start+1)%4)
-        var opt_3 = document.getElementById((start+2)%4)
-        var opt_4 = document.getElementById((start+3)%4)
+        var opt_1 = document.getElementById((start+1)%4)
+        var opt_2 = document.getElementById((start+2)%4)
+        var opt_3 = document.getElementById((start+3)%4)
+        var opt_4 = document.getElementById((start+4)%4)
         
-        //opt_1.innerText = opt_1.id+' . '+quiz.results[count].correct_answer
-        opt_2.innerText = opt_2.id+' . '+quiz.results[count].incorrect_answers[0]
-        opt_3.innerText = opt_3.id+' . '+quiz.results[count].incorrect_answers[1]
-        opt_4.innerText = opt_4.id+' . '+quiz.results[count].incorrect_answers[2]
+        opt_1.innerText = quiz.results[count].correct_answer
+        opt_2.innerText = quiz.results[count].incorrect_answers[0]
+        opt_3.innerText = quiz.results[count].incorrect_answers[1]
+        opt_4.innerText = quiz.results[count].incorrect_answers[2]
     } else {
         alert('The Quiz is over !!! \n You can restart with a new category and difficulty level .. \n Do not forget to remember your score!!!! ')
     }
@@ -108,13 +108,17 @@ function play_quiz(){
 
 function check_answers(){
 
+    
+
     var temp = localStorage.getItem('current_quiz')
     quiz = JSON.parse(temp)
 
-    var check = event.target.innerText
-    check = check.slice(4)
+    var check = event.target
+    var answered = document.getElementById('answer')
+    answered.innerText = check.innerText
 
-    if (check == quiz.results[count].correct_answer){
+
+    if (check.innerText == quiz.results[count].correct_answer){
         alert('YAAAY!!! Correct Answer.')
         score += 10
     }else {
@@ -122,6 +126,7 @@ function check_answers(){
         score -= 5
     }
     count++
+    answered.innerText = ''
     play_quiz()
 }
 
