@@ -14,8 +14,11 @@
         <div class = 'row' id = 'main_body'>
 
             <div class = 'col-2 p-2 bg-dark text-light shadow-lg' id = 'left_navigation'>
-
-                <a href="index.html" class= 'ml-4 mt-3 pl-4'><i class="fab fa-free-code-camp fa-5x ml-2 text-danger"></i></a>  
+                <br>
+                <a href="index.html" class= 'ml-4 mt-4 pl-4'><i class="fab fa-free-code-camp fa-5x ml-2 text-danger"></i></a>  
+                <br>
+                <br>
+                
                 <p class='text-muted mt-2'><small>DASHBOARD 2.0</small></p>
                 
                 <ul>
@@ -24,18 +27,18 @@
                         <span class="badge badge-warning float-right mt-1" id='badge'>4</span>
                         <span> Dashboards </span>
                         <br>
-                        <ul class = 'mt-1'>
+                        <ul class = 'my-2'>
                             <li>
-                                <a href='/' onclick="open_tickets()">Open Tickets</a>
+                                <a href='/' onclick="all()">All Tickets</a>
                             </li>
                             <li>
-                                <a href='/' onclick="closed_tickets()">Closed Tickets</a>
+                                <a href='/' onclick="open_tickets()">Open Tickets</a>
                             </li>
                             <li>
                                 <a href='/' onclick="urgent_tickets()">Urgent Tickets</a>
                             </li>
                             <li>
-                                <a href='/' onclick="all()">All Tickets</a>
+                                <a href='/' onclick="closed_tickets()">Closed Tickets</a>
                             </li>
                         </ul>
                     </li>
@@ -44,10 +47,10 @@
 
             <div class = 'col-10 p-2 bg-light shadow-lg float-left' id = 'work_area'>
 
-                <h1 class = 'text-center text-muted'>Shankhs CRM Dashboard</h1>
+                <h1 class = 'text-center text-muted'>Shankhs Ticketing Dashboard</h1>
 
                 <div>
-                    <button type="button" id='button_add_issue' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg">Add New Issue</button>
+                    <button type="button" id='button_issue' onclick= 'complaint_no()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg">Add New Issue</button>
                     
                     <select id = 'sort_by' class="browser-default custom-select mb-4 col-3 offset-6 mt-5">
                         <option value="" disabled>Choose Sorting</option>
@@ -57,79 +60,87 @@
                         <option value="due">Due By</option>
                     </select>
                     
-                    <button type="button" id='sort' class="btn btn-primary float-right mt-5" onclick="sort()" >Sort BY</button>
+                    <button type="button" id='sort' class="btn btn-primary float-right mt-5" onclick="sort()" >Sort LIST</button>
                 </div>
 
                 <div class="modal fade col-6 offset-3 bg-light shadow-lg rounded" id="issue_reg" tabindex="-1" aria-hidden="true">
-        
+                    
                     <form class="border p-5">
-        
                         <p class="h3 mb-4 text-center">New Issue Registration</p>
-        
-                        <input type="text" id="customer" class="form-control mb-4" placeholder="Customer Name">
-        
+                        <p id = 'complaint_no' class= 'text-danger font-weight-bold'></p>
+                        <input type="text" id="name" class="form-control mb-4" placeholder="Name">
                         <div class = 'form-inline mx-3'>
                             <p>Complaint Date</p>
                             <input type="date" id="date" class="form-control mx-4 mb-3">
                             <p class = 'float-left text-muted mx-4'><small>To be resolved by : 10 days</small></p>
                         </div>
-                        
-                        
-        
                         <label class = 'ml-2'>Choose a Department</label>
                         <select id = 'department' class="browser-default custom-select mb-4">
                             <option value="" disabled>Choose option</option>
-                            <option value="Electronics" selected>Electronics</option>
-                            <option value="Furniture">Furniture</option>
-                            <option value="Home Appliances">Home Appliances</option>
-                            <option value="Books">Books</option>
+                            <option value="New Student Related Issue">New Student Related Issue</option>
+                            <option value="Current Student Issue" selected>Current Student Issue</option>
+                            <option value="Complaint Against Teacher">Complaint Against Teacher</option>
+                            <option value="Complaint Against Student">Complaint Against Student</option>
+                            <option value="Issues Realted to Examination">Issues Realted to Examination</option>
+                            <option value="Documentation Issue">Documentation Issue</option>
+                            <option value="Fees Issue">Fees Issue</option>
+                            <option value="Refund Issue">Refund Issue</option>
+                            <option value="Status Update">Status Update</option>
                         </select>
         
                         <div class="form-group">
                             <textarea class="form-control rounded-0" id="issue" rows="3" placeholder="Complaint ISSUE Details"></textarea>
                         </div>
-                        <div class = ''>
-                            <button id = 'add' class="btn btn-primary " type="submit" onclick="add_product()">Add Product</button>
+                        <div >
+                            <button id = 'add' class="btn btn-primary " type="submit" onclick="add_issue()">Register Issue</button>
                             <button id = 'cancel' class="btn btn-warning " type="submit" >Cancel</button>
                         </div>
                     </form>
                 </div>
 
-                <div id = 'table_display'>
+                <div>
                     <table class="table table-striped mt-4">
                         <thead class="thead-dark">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Customer</th>
+                            <th scope="col">Complaint ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Complaint Date</th>
                             <th scope="col">Department</th>
                             <th scope="col">Complaint ISSUE Details</th>
-                            <th scope="col">Due By</th>
+                            <th scope="col">STATUS</th>
                             <th scope="col">ACTION</th>
                         </tr>
                         </thead>
-                        <tbody >
+                        <tbody id = 'table'>
                         <tr>
                             <th scope="row">1</th>
+                            <td>Masai/2020-21/1</td>
                             <td>Mark</td>
+                            <td>Date</td>
                             <td>Otto</td>
                             <td>@mdo</td>
-                            <td>Date</td>
+                            <td>Open</td>
                             <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
+                            <td>Masai/2020-21/1</td>
                             <td>Jacob</td>
                             <td>Thornton</td>
                             <td class =''>@fate</td>
                             <td>Date</td>
+                            <td>Open</td>
                             <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
+                            <td>Masai/2020-21/1</td>
                             <td>Larry</td>
                             <td>the Bird</td>
                             <td>@twitter</td>
                             <td>Date</td>
+                            <td>Open</td>
                             <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
                         </tr>
                         </tbody>
