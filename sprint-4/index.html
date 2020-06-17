@@ -14,91 +14,99 @@
         <div class = 'row' id = 'main_body'>
 
             <div class = 'col-2 p-2 bg-dark text-light shadow-lg' id = 'left_navigation'>
+
                 <a href="index.html" class= 'ml-4 mt-3 pl-4'><i class="fab fa-free-code-camp fa-5x ml-2 text-danger"></i></a>  
-                <p class='text-muted mt-2'><small>NAVIGATION</small></p>
-                <ul class="metismenu side-nav mm-show">
-
-                    <li class="side-nav-title side-nav-item">Navigation</li>
-
-                    <li class="side-nav-item mm-active">
-                        <a href="javascript: void(0);" class="side-nav-link active">
-                            <i class="uil-home-alt"></i>
-                            <span class="badge badge-success float-right">4</span>
-                            <span> Dashboards </span>
-                        </a>
-                        <ul class="side-nav-second-level mm-collapse mm-show" aria-expanded="false">
+                <p class='text-muted mt-2'><small>DASHBOARD 2.0</small></p>
+                
+                <ul>
+                    <li href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span class="badge badge-warning float-right mt-1" id='badge'>4</span>
+                        <span> Dashboards </span>
+                        <br>
+                        <ul class = 'mt-1'>
                             <li>
-                                <a href="dashboard-analytics.html">Analytics</a>
+                                <a href='/' onclick="open_tickets()">Open Tickets</a>
                             </li>
                             <li>
-                                <a href="dashboard-crm.html">CRM</a>
-                            </li>
-                            <li class="mm-active">
-                                <a href="index.html" class="active">Ecommerce</a>
+                                <a href='/' onclick="closed_tickets()">Closed Tickets</a>
                             </li>
                             <li>
-                                <a href="dashboard-projects.html">Projects</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="side-nav-title side-nav-item">Apps</li>
-
-                    <li class="side-nav-item">
-                        <a href="apps-calendar.html" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span> Calendar </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="apps-chat.html" class="side-nav-link">
-                            <i class="uil-comments-alt"></i>
-                            <span> Chat </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="javascript: void(0);" class="side-nav-link">
-                            <i class="uil-store"></i>
-                            <span> Ecommerce </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="side-nav-second-level mm-collapse" aria-expanded="false">
-                            <li>
-                                <a href="apps-ecommerce-products.html">Products</a>
+                                <a href='/' onclick="urgent_tickets()">Urgent Tickets</a>
                             </li>
                             <li>
-                                <a href="apps-ecommerce-products-details.html">Products Details</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-orders.html">Orders</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-orders-details.html">Order Details</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-customers.html">Customers</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-shopping-cart.html">Shopping Cart</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-checkout.html">Checkout</a>
-                            </li>
-                            <li>
-                                <a href="apps-ecommerce-sellers.html">Sellers</a>
+                                <a href='/' onclick="all()">All Tickets</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
-                
-
-
             </div>
 
             <div class = 'col-10 p-2 bg-light shadow-lg float-left' id = 'work_area'>
-                work_area
+
+                <h1 class = 'text-center text-muted'>Shankhs CRM Dashboard</h1>
+
+                <table class="table mt-4">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
             </div>
             
         </div>
