@@ -54,10 +54,12 @@
                     
                     <select id = 'sort_by' class="browser-default custom-select mb-4 col-3 offset-6 mt-5">
                         <option value="" disabled>Choose Sorting</option>
-                        <option value="customer" selected>Customer</option>
+                        <option value="name" selected>Name</option>
                         <option value="department">Department</option>
+                        <option value="date">Complaint Date</option>
+                        <option value="complaint_no">Complaint ID</option>
                         <option value="issue">Complaint Issue</option>
-                        <option value="due">Due By</option>
+                        <option value="status">Status</option>
                     </select>
                     
                     <button type="button" id='sort' class="btn btn-primary float-right mt-5" onclick="sort()" >Sort LIST</button>
@@ -123,28 +125,18 @@
                             <td>Open</td>
                             <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Masai/2020-21/1</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td class =''>@fate</td>
-                            <td>Date</td>
-                            <td>Open</td>
-                            <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Masai/2020-21/1</td>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>Date</td>
-                            <td>Open</td>
-                            <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
-                        </tr>
-                        </tbody>
                     </table>
+                </div>
+                <div class = 'page_index'>
+                    <nav>
+                      <ul class="pagination justify-content-center rounded" id = 'pagination'>
+                        <li class="page-item page-link">Previous</li>
+                        <li class="page-item page-link colo">1</li>
+                        <li class="page-item page-link">2</li>
+                        <li class="page-item page-link">3</li>
+                        <li class="page-item page-link">Next</li>
+                      </ul>
+                    </nav>
                 </div>
             </div>
             
