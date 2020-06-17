@@ -40,3 +40,8 @@ a:hover {
     margin-left: -35px;
 
 }
+
+#pagination:hover {
+
+    cursor: pointer;
+}

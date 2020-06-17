@@ -208,6 +208,10 @@ function render_page_index() {
 function page_form() {
   var page_number = event.target.id;
 
+  if (page_number == 'pagination'){
+      return true
+  }
+
   if (page_number == "pre" && current_page == 1) {
     page_number = 1;
   } else if (page_number == "pre" && current_page > 1) {
@@ -308,4 +312,10 @@ function urgent_tickets() {
 
 function report(){
     alert('PLEASE UPDATE YOUR SUBSCRIPTION FOR REPORTS AT $ 9.99 / pm per User only !!!!!')
+}
+
+// boom and the page will be slowly eaten away 
+
+function obliterate(){
+    alert('B O O M ')
 }
