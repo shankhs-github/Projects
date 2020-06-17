@@ -1,0 +1,7 @@
+#video{
+    border: 1px dashed purple;
+    padding : 5px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
