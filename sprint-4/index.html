@@ -26,28 +26,66 @@
                 
                 <p class='text-muted mt-2'><small>DASHBOARD 2.0</small></p>
                 
-                <ul>
-                    <li href="index.html">
-                        <i class="fas fa-home"></i>
-                        <span class="badge badge-warning float-right mt-1" id='badge'>4</span>
-                        <span> Dashboards </span>
-                        <br>
-                        <ul class = 'my-2'>
-                            <li>
-                                <a href='/' onclick="all_tickets()">All Tickets</a>
-                            </li>
-                            <li>
-                                <a href='/' onclick="open_tickets()">Open Tickets</a>
-                            </li>
-                            <li>
-                                <a href='/' onclick="urgent_tickets()">Urgent Tickets</a>
-                            </li>
-                            <li>
-                                <a href='/' onclick="closed_tickets()">Closed Tickets</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <div id = 'menu_nav'>
+                    <ul>
+                        <li href="index.html">
+                            <i class="fas fa-columns"></i>
+                            <span class="badge badge-warning float-right mt-2" id='badge'>4</span>
+                            <span> Dashboards </span>
+                            <br>
+                            <ul class = 'my-2'>
+                                <li>
+                                    <a href='/' onclick="all_tickets()">All Tickets</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="open_tickets()">Open Tickets</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="urgent_tickets()">Urgent Tickets</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="closed_tickets()">Closed Tickets</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul>
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <span> Reports </span>
+                            <br>
+                            <ul class = 'my-2'>
+                                <li>
+                                    <a href='/' onclick="report()">Productivity Report</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="report()">Open Ticket Ageing Report Report</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="report()">Urgent Ticket-Resolution Report</a>
+                                </li>
+                                <li>
+                                    <a href='/' onclick="report()">Closure Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <i class="fas fa-bomb"></i>
+                            <span> miscellaneous </span>
+                            <br>
+                            <ul class = 'my-2'>
+                                <li>
+                                    <a href='/' onclick="obliterate()">obliterate</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
             </div>
 
 <!-- the main data display area -->

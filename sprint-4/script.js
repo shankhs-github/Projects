@@ -303,3 +303,9 @@ function closed_tickets() {
 function urgent_tickets() {
   alert("Urgent Badging to come soon !!");
 }
+
+// reports 
+
+function report(){
+    alert('PLEASE UPDATE YOUR SUBSCRIPTION FOR REPORTS AT $ 9.99 / pm per User only !!!!!')
+}
