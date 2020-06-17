@@ -46,71 +46,100 @@
 
                 <h1 class = 'text-center text-muted'>Shankhs CRM Dashboard</h1>
 
-                <table class="table mt-4">
-                    <thead class="thead-dark">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  
-                  <table class="table">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div>
+                    <button type="button" id='button_add_issue' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg">Add New Issue</button>
+                    
+                    <select id = 'sort_by' class="browser-default custom-select mb-4 col-3 offset-6 mt-5">
+                        <option value="" disabled>Choose Sorting</option>
+                        <option value="customer" selected>Customer</option>
+                        <option value="department">Department</option>
+                        <option value="issue">Complaint Issue</option>
+                        <option value="due">Due By</option>
+                    </select>
+                    
+                    <button type="button" id='sort' class="btn btn-primary float-right mt-5" onclick="sort()" >Sort BY</button>
+                </div>
+
+                <div class="modal fade col-6 offset-3 bg-light shadow-lg rounded" id="issue_reg" tabindex="-1" aria-hidden="true">
+        
+                    <form class="border p-5">
+        
+                        <p class="h3 mb-4 text-center">New Issue Registration</p>
+        
+                        <input type="text" id="customer" class="form-control mb-4" placeholder="Customer Name">
+        
+                        <div class = 'form-inline mx-3'>
+                            <p>Complaint Date</p>
+                            <input type="date" id="date" class="form-control mx-4 mb-3">
+                            <p class = 'float-left text-muted mx-4'><small>To be resolved by : 10 days</small></p>
+                        </div>
+                        
+                        
+        
+                        <label class = 'ml-2'>Choose a Department</label>
+                        <select id = 'department' class="browser-default custom-select mb-4">
+                            <option value="" disabled>Choose option</option>
+                            <option value="Electronics" selected>Electronics</option>
+                            <option value="Furniture">Furniture</option>
+                            <option value="Home Appliances">Home Appliances</option>
+                            <option value="Books">Books</option>
+                        </select>
+        
+                        <div class="form-group">
+                            <textarea class="form-control rounded-0" id="issue" rows="3" placeholder="Complaint ISSUE Details"></textarea>
+                        </div>
+                        <div class = ''>
+                            <button id = 'add' class="btn btn-primary " type="submit" onclick="add_product()">Add Product</button>
+                            <button id = 'cancel' class="btn btn-warning " type="submit" >Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id = 'table_display'>
+                    <table class="table table-striped mt-4">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Complaint ISSUE Details</th>
+                            <th scope="col">Due By</th>
+                            <th scope="col">ACTION</th>
+                        </tr>
+                        </thead>
+                        <tbody >
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>Date</td>
+                            <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td class =''>@fate</td>
+                            <td>Date</td>
+                            <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>Date</td>
+                            <td><button class = 'btn btn-outline-primary btn-sm'>Edit</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
         </div>
 
+        
 
 
     </div>
