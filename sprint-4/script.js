@@ -20,13 +20,16 @@ window.onload = function () {
 };
 
 function complaint_no() {
-  var current_complaint = total_issue + 1;
-  var temp = document.getElementById("complaint_no");
-  temp.innerText = "Ticket No : Masai/2020-21/" + current_complaint;
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
+  var current_complaint = temp.length + 1;
+  var comp = document.getElementById("complaint_no");
+  comp.innerText = "Ticket No : Masai/2020-21/" + current_complaint;
 }
 
 function add_issue() {
-  var current_complaint = total_issue + 1;
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
+
+  var current_complaint = temp.length + 1;
   var new_issue = {
     complaint_no: "Masai/2020-21/" + current_complaint,
     name: document.getElementById("name").value,
@@ -36,11 +39,9 @@ function add_issue() {
     status: "Open",
   };
 
-  var temp = localStorage.getItem("all_complaints");
-  var data = JSON.parse(temp);
-
+  temp.push(new_issue);
   data.push(new_issue);
-  localStorage.setItem("all_complaints", JSON.stringify(data));
+  localStorage.setItem("all_complaints", JSON.stringify(temp));
 
   total_issue++;
   total_pages = Math.ceil(total_issue / per_page);
@@ -51,7 +52,8 @@ function render_table() {
   var table = document.getElementById("table");
   table.innerHTML = "";
 
-  var render_data = JSON.parse(localStorage.getItem("all_complaints"));
+  total_issue = data.length;
+  total_pages = Math.ceil(total_issue / per_page);
 
   var to_item_no = current_page * per_page;
   if (to_item_no > total_issue) {
@@ -66,27 +68,27 @@ function render_table() {
     col1.innerText = i + 1;
 
     var col2 = document.createElement("td");
-    col2.innerText = render_data[i].complaint_no;
+    col2.innerText = data[i].complaint_no;
 
     var col3 = document.createElement("td");
-    col3.innerText = render_data[i].name;
+    col3.innerText = data[i].name;
 
     var col4 = document.createElement("td");
-    col4.innerText = render_data[i].date;
+    col4.innerText = data[i].date;
 
     var col5 = document.createElement("td");
-    col5.innerText = render_data[i].department;
+    col5.innerText = data[i].department;
 
     var col6 = document.createElement("td");
-    col6.innerText = render_data[i].issue;
+    col6.innerText = data[i].issue;
 
     var col7 = document.createElement("td");
-    if (render_data[i].status == "Open") {
+    if (data[i].status == "Open") {
       col7.setAttribute("class", "text-danger font-weight-bold");
     } else {
       col7.setAttribute("class", "text-primary");
     }
-    col7.innerText = render_data[i].status;
+    col7.innerText = data[i].status;
 
     var col8 = document.createElement("td");
     var col8_2 = document.createElement("button");
@@ -111,19 +113,26 @@ function update_status() {
 
   alert(
     "YOU are about to change the status of ticket No : " +
-      temp[update.id].complaint_no +
+      data[update.id].complaint_no +
       " Are you certain to proceed?"
   );
 
-  if (temp[update.id].status == "Open") {
-    temp[update.id].status = "Closed";
+  if (data[update.id].status == "Open") {
+    data[update.id].status = "Closed";
   } else {
-    temp[update.id].status = "Open";
+    data[update.id].status = "Open";
+  }
+
+  for (var i = 0; i < temp.length; i++) {
+    if (temp[i].complaint_no === data[update.id].complaint_no) {
+      temp[i].status = data[update.id].status;
+      break;
+    }
   }
 
   localStorage.setItem("all_complaints", JSON.stringify(temp));
 
-  update_badge()
+  update_badge();
   render_table();
 }
 
@@ -199,11 +208,9 @@ function page_form() {
 }
 
 function sort() {
-  var local_sort = JSON.parse(localStorage.getItem("all_complaints"));
-
   var sort = document.getElementById("sort_by").value;
 
-  local_sort = local_sort.sort(function (a, b) {
+  data = data.sort(function (a, b) {
     if (a[sort] > b[sort]) {
       return 1;
     } else {
@@ -211,21 +218,58 @@ function sort() {
     }
   });
 
-  localStorage.setItem("all_complaints", JSON.stringify(local_sort));
   current_page = 1;
   render_table();
 }
 
 function update_badge() {
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
+  var count = 0;
 
-    var temp = JSON.parse(localStorage.getItem("all_complaints"));
-    var count = 0
-
-    for (var i = 0 ; i < temp.length ; i++){
-
-        if (temp[i].status === 'Open'){
-            count++
-        }
+  for (var i = 0; i < temp.length; i++) {
+    if (temp[i].status === "Open") {
+      count++;
     }
-    document.getElementById('badge').innerText = count
+  }
+  document.getElementById("badge").innerText = count;
+}
+
+function all_tickets() {
+  current_page = 1;
+  data = [];
+
+  data = JSON.parse(localStorage.getItem("all_complaints"));
+  render_table();
+}
+
+function open_tickets() {
+  current_page = 1;
+
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
+  data = [];
+
+  for (var i = 0; i < temp.length; i++) {
+    if (temp[i].status === "Open") {
+      data.push(temp[i]);
+    }
+  }
+  render_table();
+}
+
+function closed_tickets() {
+  current_page = 1;
+
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
+  data = [];
+
+  for (var i = 0; i < temp.length; i++) {
+    if (temp[i].status === "Closed") {
+      data.push(temp[i]);
+    }
+  }
+  render_table();
+}
+
+function urgent_tickets() {
+    alert('Urgent Badging to come soon !!')
 }
