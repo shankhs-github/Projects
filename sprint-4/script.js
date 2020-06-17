@@ -1,3 +1,5 @@
+// for initiating the local storage as one data value
+
 // var first = [{
 //   complaint_no : 'Masai/2020-21/1',
 //   name : 'Shankhadeep Dhar',
@@ -8,16 +10,22 @@
 // }]
 // localStorage.setItem('all_complaints',JSON.stringify(first))
 
+// defining all the global variable and setting the intial value
+
 var data = JSON.parse(localStorage.getItem("all_complaints"));
 var total_issue = data.length;
 var current_page = 1;
 var per_page = 6;
 var total_pages = Math.ceil(total_issue / per_page);
 
+// onload and the first render
+
 window.onload = function () {
   render_table();
   update_badge();
 };
+
+// determine the complaint number for the complaint raising form
 
 function complaint_no() {
   var temp = JSON.parse(localStorage.getItem("all_complaints"));
@@ -25,6 +33,8 @@ function complaint_no() {
   var comp = document.getElementById("complaint_no");
   comp.innerText = "Ticket No : Masai/2020-21/" + current_complaint;
 }
+
+// adding a new issue
 
 function add_issue() {
   var temp = JSON.parse(localStorage.getItem("all_complaints"));
@@ -47,6 +57,8 @@ function add_issue() {
   total_pages = Math.ceil(total_issue / per_page);
   render_table();
 }
+
+// RENDERING THE TABLE WITH GLOBAL VARIABLE
 
 function render_table() {
   var table = document.getElementById("table");
@@ -107,6 +119,8 @@ function render_table() {
   render_page_index();
 }
 
+// status updated function , for both global as well as local storage variable
+
 function update_status() {
   var update = event.target;
   var temp = JSON.parse(localStorage.getItem("all_complaints"));
@@ -135,6 +149,8 @@ function update_status() {
   update_badge();
   render_table();
 }
+
+// Pageination render
 
 function render_page_index() {
   var left_extreme = current_page - 2;
@@ -187,6 +203,8 @@ function render_page_index() {
   page_list.addEventListener("click", page_form);
 }
 
+// logic for page propagation with previous & next functions also checking and updating left right and current page
+
 function page_form() {
   var page_number = event.target.id;
 
@@ -207,6 +225,8 @@ function page_form() {
   render_table();
 }
 
+// global variable sort 
+
 function sort() {
   var sort = document.getElementById("sort_by").value;
 
@@ -222,6 +242,8 @@ function sort() {
   render_table();
 }
 
+// status counter badge updating 
+
 function update_badge() {
   var temp = JSON.parse(localStorage.getItem("all_complaints"));
   var count = 0;
@@ -234,6 +256,8 @@ function update_badge() {
   document.getElementById("badge").innerText = count;
 }
 
+// filtering - all data 
+
 function all_tickets() {
   current_page = 1;
   data = [];
@@ -241,6 +265,8 @@ function all_tickets() {
   data = JSON.parse(localStorage.getItem("all_complaints"));
   render_table();
 }
+
+// filtering - open tickets and updating global variable for render 
 
 function open_tickets() {
   current_page = 1;
@@ -256,6 +282,8 @@ function open_tickets() {
   render_table();
 }
 
+// filtering - closed tickets and updating global variable for render 
+
 function closed_tickets() {
   current_page = 1;
 
@@ -270,6 +298,8 @@ function closed_tickets() {
   render_table();
 }
 
+// filtering - urgent tags to be attached and updated 
+
 function urgent_tickets() {
-    alert('Urgent Badging to come soon !!')
+  alert("Urgent Badging to come soon !!");
 }
