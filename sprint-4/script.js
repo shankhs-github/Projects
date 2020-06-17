@@ -16,6 +16,7 @@ var total_pages = Math.ceil(total_issue / per_page);
 
 window.onload = function () {
   render_table();
+  update_badge();
 };
 
 function complaint_no() {
@@ -80,10 +81,10 @@ function render_table() {
     col6.innerText = render_data[i].issue;
 
     var col7 = document.createElement("td");
-    if (render_data[i].status == 'Open'){
-        col7.setAttribute('class','text-danger font-weight-bold')
+    if (render_data[i].status == "Open") {
+      col7.setAttribute("class", "text-danger font-weight-bold");
     } else {
-        col7.setAttribute('class','text-primary') 
+      col7.setAttribute("class", "text-primary");
     }
     col7.innerText = render_data[i].status;
 
@@ -91,7 +92,7 @@ function render_table() {
     var col8_2 = document.createElement("button");
     col8_2.setAttribute("class", "btn btn-outline-primary btn-sm");
     col8_2.innerText = "UPDATE";
-    col8_2.setAttribute('id',i)
+    col8_2.setAttribute("id", i);
 
     col8.appendChild(col8_2);
 
@@ -99,29 +100,32 @@ function render_table() {
     table.append(row);
   }
 
-  table.addEventListener('click', update_status)
+  table.addEventListener("click", update_status);
 
   render_page_index();
 }
 
-function update_status(){
-    var update = event.target
+function update_status() {
+  var update = event.target;
+  var temp = JSON.parse(localStorage.getItem("all_complaints"));
 
-    alert('YOU are about to change the status of the complaint !!')
+  alert(
+    "YOU are about to change the status of ticket No : " +
+      temp[update.id].complaint_no +
+      " Are you certain to proceed?"
+  );
 
-    var temp = JSON.parse(localStorage.getItem('all_complaints'))
+  if (temp[update.id].status == "Open") {
+    temp[update.id].status = "Closed";
+  } else {
+    temp[update.id].status = "Open";
+  }
 
-    if (temp[update.id].status == 'Open'){
-        temp[update.id].status = 'Closed'
-    }else {
-        temp[update.id].status = 'Open'
-    }
+  localStorage.setItem("all_complaints", JSON.stringify(temp));
 
-    localStorage.setItem('all_complaints',JSON.stringify(temp))
-    
-    render_table()
+  update_badge()
+  render_table();
 }
-
 
 function render_page_index() {
   var left_extreme = current_page - 2;
@@ -210,4 +214,18 @@ function sort() {
   localStorage.setItem("all_complaints", JSON.stringify(local_sort));
   current_page = 1;
   render_table();
+}
+
+function update_badge() {
+
+    var temp = JSON.parse(localStorage.getItem("all_complaints"));
+    var count = 0
+
+    for (var i = 0 ; i < temp.length ; i++){
+
+        if (temp[i].status === 'Open'){
+            count++
+        }
+    }
+    document.getElementById('badge').innerText = count
 }
