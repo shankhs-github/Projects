@@ -30,7 +30,7 @@ window.onload = function () {
   update_badge();
 };
 
-// debouncer function for search
+// debouncer function for search along with the search params and converting to lowercase all to match search
 
 function debouncer(delay, callback) {
   var debounce;
