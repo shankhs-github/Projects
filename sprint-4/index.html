@@ -25,7 +25,20 @@
                 <br>
                 
                 <p class='text-muted mt-2'><small>DASHBOARD 2.0</small></p>
-                
+
+<!-- key word search  -->
+
+                <div class="input-group my-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-search text-light"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Keyword Search" id = 'search' autofocus>
+                </div>
+
+                <br>
+
+<!-- side bar navigation  -->
+
                 <div id = 'menu_nav'>
                     <ul>
                         <li href="index.html">
@@ -78,7 +91,7 @@
                             <br>
                             <ul class = 'my-2'>
                                 <li>
-                                    <a href='/' onclick="obliterate()">obliterate</a>
+                                    <a href='/' onclick="fun_ball()">Lets have FUN</a>
                                 </li>
                             </ul>
                         </li>
@@ -89,11 +102,12 @@
             </div>
 
 <!-- the main data display area -->
-<!-- the issue add form -->
 
             <div class = 'col-10 p-2 bg-light shadow-lg float-left' id = 'work_area'>
 
                 <h1 class = 'text-center text-muted'>Shankhs Ticketing Dashboard</h1>
+
+<!-- the top navigation -->
 
                 <div>
                     <button type="button" id='button_issue' onclick= 'complaint_no()' class="btn btn-primary mt-4" data-toggle="modal" data-target="#issue_reg">Add New Issue</button>
@@ -110,6 +124,8 @@
                     
                     <button type="button" id='sort' class="btn btn-primary float-right mt-5" onclick="sort()" >Sort LIST</button>
                 </div>
+
+<!-- the issue add form -->
 
                 <div class="modal fade col-6 offset-3 bg-light shadow-lg rounded" id="issue_reg" tabindex="-1" aria-hidden="true">
                     
@@ -192,6 +208,10 @@
             </div>
         </div>
     </div>
+
+<!-- canvas - ball bouncing location -->
+
+<canvas id="canvas" width="1368" height="798"></canvas>
     
 <!-- bootstrap JS and the main JS file -->
     

@@ -15,15 +15,55 @@
 var data = JSON.parse(localStorage.getItem("all_complaints"));
 var total_issue = data.length;
 var current_page = 1;
-var per_page = 6;
+var per_page = 5;
 var total_pages = Math.ceil(total_issue / per_page);
+var current_search;
+var search;
 
 // onload and the first render
 
 window.onload = function () {
+  search = document.getElementById("search");
+  search.addEventListener("keyup", debouncer(500, render_table));
+
   render_table();
   update_badge();
 };
+
+// debouncer function for search
+
+function debouncer(delay, callback) {
+  var debounce;
+  return function () {
+    debounce && clearTimeout(debounce);
+    debounce = setTimeout(function () {
+      current_search = search.value;
+      current_search = current_search.toLowerCase();
+      data = [];
+      var temp = JSON.parse(localStorage.getItem("all_complaints"));
+
+      for (var i = 0; i < temp.length; i++) {
+        var str1 = temp[i].complaint_no.toLowerCase();
+        var str2 = temp[i].name.toLowerCase();
+        var str3 = temp[i].department.toLowerCase();
+        var str4 = temp[i].issue.toLowerCase();
+        var str5 = temp[i].status.toLowerCase();
+
+        if (
+          str1.includes(current_search) ||
+          str2.includes(current_search) ||
+          str3.includes(current_search) ||
+          str4.includes(current_search) ||
+          str5.includes(current_search)
+        ) {
+          data.push(temp[i]);
+        }
+      }
+
+      callback();
+    }, delay);
+  };
+}
 
 // determine the complaint number for the complaint raising form
 
@@ -208,8 +248,8 @@ function render_page_index() {
 function page_form() {
   var page_number = event.target.id;
 
-  if (page_number == 'pagination'){
-      return true
+  if (page_number == "pagination") {
+    return true;
   }
 
   if (page_number == "pre" && current_page == 1) {
@@ -229,7 +269,7 @@ function page_form() {
   render_table();
 }
 
-// global variable sort 
+// global variable sort
 
 function sort() {
   var sort = document.getElementById("sort_by").value;
@@ -246,7 +286,7 @@ function sort() {
   render_table();
 }
 
-// status counter badge updating 
+// status counter badge updating
 
 function update_badge() {
   var temp = JSON.parse(localStorage.getItem("all_complaints"));
@@ -260,7 +300,7 @@ function update_badge() {
   document.getElementById("badge").innerText = count;
 }
 
-// filtering - all data 
+// filtering - all data
 
 function all_tickets() {
   current_page = 1;
@@ -270,7 +310,7 @@ function all_tickets() {
   render_table();
 }
 
-// filtering - open tickets and updating global variable for render 
+// filtering - open tickets and updating global variable for render
 
 function open_tickets() {
   current_page = 1;
@@ -286,7 +326,7 @@ function open_tickets() {
   render_table();
 }
 
-// filtering - closed tickets and updating global variable for render 
+// filtering - closed tickets and updating global variable for render
 
 function closed_tickets() {
   current_page = 1;
@@ -302,20 +342,61 @@ function closed_tickets() {
   render_table();
 }
 
-// filtering - urgent tags to be attached and updated 
+// filtering - urgent tags to be attached and updated
 
 function urgent_tickets() {
   alert("Urgent Badging to come soon !!");
 }
 
-// reports 
+// reports
 
-function report(){
-    alert('PLEASE UPDATE YOUR SUBSCRIPTION FOR REPORTS AT $ 9.99 / pm per User only !!!!!')
+function report() {
+  alert(
+    "PLEASE UPDATE YOUR SUBSCRIPTION FOR REPORTS AT $ 9.99 / pm per User only !!!!!"
+  );
 }
 
-// boom and the page will be slowly eaten away 
+// boom and the page will be slowly eaten away
+// the functions and constansts related to ball bouncing
 
-function obliterate(){
-    alert('B O O M ')
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const circle = {
+  x: 200,
+  y: 200,
+  size: 30,
+  dx: 10,
+  dy: 8,
+};
+
+function fun_ball() {
+  alert("R E L A X");
+  canvas.style.zIndex = +1;
+  update_ball();
+}
+
+function draw_ball() {
+  ctx.beginPath();
+  ctx.arc(circle.x, circle.y, circle.size, 0, Math.PI * 2);
+  ctx.fillStyle = "red";
+  ctx.fill();
+}
+
+function update_ball() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  draw_ball();
+
+  circle.x += circle.dx;
+  circle.y += circle.dy;
+
+  if (circle.x + circle.size > canvas.width || circle.x - circle.size < 0) {
+    circle.dx *= -1;
+  }
+
+  if (circle.y + circle.size > canvas.height || circle.y - circle.size < 0) {
+    circle.dy *= -1;
+  }
+
+  requestAnimationFrame(update_ball);
 }
