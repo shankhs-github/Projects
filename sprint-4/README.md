@@ -4,13 +4,13 @@ The program is a basic of a ticketing control Dashboard. The design is kept indu
 
 ### The features added to it are :
 
-**SORTING BY SELECTORS**
-**ADDING USING MODAL FORMS**
-**PAGINATION**
-**FILTERING**
-**LIVE SEARCH**
-**LIVE UPDATE**
-**RELAX MODE**
+**SORTING BY SELECTORS**  
+**ADDING USING MODAL FORMS**  
+**PAGINATION**  
+**FILTERING**  
+**LIVE SEARCH**  
+**LIVE UPDATE**  
+**RELAX MODE**  
 
 ### The special mentions in terms of technique used is 
 
