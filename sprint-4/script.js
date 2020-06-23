@@ -24,45 +24,52 @@ var search;
 
 window.onload = function () {
   search = document.getElementById("search");
-  search.addEventListener("keyup", debouncer(500, render_table));
+  search.addEventListener("keyup", debouncer(500, keyword_search));
 
   render_table();
   update_badge();
 };
 
-// debouncer function for search along with the search params and converting to lowercase all to match search
+// debouncer function search 
 
 function debouncer(delay, callback) {
   var debounce;
   return function () {
     debounce && clearTimeout(debounce);
     debounce = setTimeout(function () {
-      current_search = search.value;
-      current_search = current_search.toLowerCase();
-      data = [];
-      var temp = JSON.parse(localStorage.getItem("all_complaints"));
-
-      for (var i = 0; i < temp.length; i++) {
-        var str1 = temp[i].complaint_no.toLowerCase();
-        var str2 = temp[i].name.toLowerCase();
-        var str3 = temp[i].department.toLowerCase();
-        var str4 = temp[i].issue.toLowerCase();
-        var str5 = temp[i].status.toLowerCase();
-
-        if (
-          str1.includes(current_search) ||
-          str2.includes(current_search) ||
-          str3.includes(current_search) ||
-          str4.includes(current_search) ||
-          str5.includes(current_search)
-        ) {
-          data.push(temp[i]);
-        }
-      }
-
       callback();
     }, delay);
   };
+}
+
+// keyword search along with the search params and converting to lowercase all to match search
+
+function keyword_search() {
+  current_search = search.value;
+  current_search = current_search.toLowerCase();
+  temp = data;
+  data = [];
+  //var temp = JSON.parse(localStorage.getItem("all_complaints"));
+
+
+  for (var i = 0; i < temp.length; i++) {
+    var str1 = temp[i].complaint_no.toLowerCase();
+    var str2 = temp[i].name.toLowerCase();
+    var str3 = temp[i].department.toLowerCase();
+    var str4 = temp[i].issue.toLowerCase();
+    var str5 = temp[i].status.toLowerCase();
+
+    if (
+      str1.includes(current_search) ||
+      str2.includes(current_search) ||
+      str3.includes(current_search) ||
+      str4.includes(current_search) ||
+      str5.includes(current_search)
+    ) {
+      data.push(temp[i]);
+    }
+  }
+  render_table()
 }
 
 // determine the complaint number for the complaint raising form
